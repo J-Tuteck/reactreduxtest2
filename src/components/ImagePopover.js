@@ -3,11 +3,13 @@ import Popover from '@mui/material/Popover';
 
 const ImagePopover = (props) => {
   const [anchorEl, setAnchorEl] = useState(props.anchorEl);
-  const [image, setImage] = useState(props.image);
+  const [imageContain, setImageContain] = useState(props.image);
 
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
+
+
 
   return (
     <div>
@@ -29,7 +31,7 @@ const ImagePopover = (props) => {
         onClose={handlePopoverClose}
         disableRestoreFocus
       >
-        <img src={image} alt={"image"} />
+        <img src={imageContain} alt={"image"} />
       </Popover>
     </div>
   );
