@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Popover from '@mui/material/Popover';
+import CardMedia from '@mui/material/CardMedia';
 
 const ImagePopover = (props) => {
   const [anchorEl, setAnchorEl] = useState(props.anchorEl);
-  const [imageContain, setImageContain] = useState(props.image);
+  const imageContain = useRef(props.image)
 
   const handlePopoverClose = () => {
     setAnchorEl(null);
@@ -31,7 +32,13 @@ const ImagePopover = (props) => {
         onClose={handlePopoverClose}
         disableRestoreFocus
       >
-        <img src={imageContain} alt={"image"} />
+        <CardMedia
+          component="img"
+          height="300px"
+          width={"300px"}
+          image={imageContain.current}
+          alt="Paella dish"
+        />
       </Popover>
     </div>
   );
